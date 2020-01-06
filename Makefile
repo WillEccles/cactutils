@@ -1,6 +1,6 @@
 CFILES=$(wildcard src/*.c)
 OUTFILES=$(patsubst src/%.c,bin/%,$(CFILES))
-CFLAGS=-O3 -Wall -pedantic -W
+CFLAGS=-O3 -std=c99 -Wall -pedantic -W
 
 all: $(OUTFILES)
 
