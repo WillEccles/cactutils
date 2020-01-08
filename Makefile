@@ -1,12 +1,12 @@
 CFILES=$(wildcard src/*.c)
-OUTFILES=$(patsubst src/%.c,bin/%,$(CFILES))
+OUTFILES=$(patsubst src/%.c,%,$(CFILES))
 CFLAGS=-O3 -std=c99 -Wall -pedantic -W
 
 all: $(OUTFILES)
 
-bin/%: src/%.c
+%: src/%.c
 	@echo "CC\t$<"
-	@$(CC) $< -o $@ $(CFLAGS)
+	@$(CC) $< -o bin/$@ $(CFLAGS)
 
 clean:
 	@rm -f bin/*
